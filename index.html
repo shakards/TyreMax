@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyre Company</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #333;
+            color: white;
+        }
+
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #555;
+        }
+
+        /* Hero Section */
+        #home {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
+            color: white;
+        }
+
+        #home h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        #home button {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: white;
+            background: #f04e30;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #home button:hover {
+            background: #d9422b;
+        }
+
+        /* About Section */
+        #about {
+            padding: 50px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f04e30;
+        }
+
+        #about p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #contact form {
+            max-width: 500px;
+            margin: auto;
+            text-align: left;
+        }
+
+        #contact form label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        #contact form input,
+        #contact form textarea,
+        #contact form button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #contact form button {
+            background: #333;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #contact form button:hover {
+            background: #555;
+        }
+
+        #formStatus {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TyreMax</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h1>Welcome to TyreMax</h1>
+        <p>We provide top-quality tires and services to keep you rolling smoothly.</p>
+        <button onclick="alert('Check out our premium tire range now!')">Discover More</button>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            TyreMax has been the leading provider of durable and affordable tires for over a decade. 
+            Our mission is to ensure safety, performance, and satisfaction for every customer. 
+            Whether you're looking for passenger, commercial, or performance tires, we've got you covered!
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form onsubmit="return handleFormSubmit(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Enter your message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formStatus"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 TyreMax. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                document.getElementById('formStatus').textContent = "Thank you for your inquiry! We will get back to you shortly.";
+                event.target.reset();
+            } else {
+                document.getElementById('formStatus').textContent = "Please fill in all fields.";
+            }
+        }
+    </script>
+</body>
+</html>
